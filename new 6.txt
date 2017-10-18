@@ -1,0 +1,43 @@
+Company
+PK	ID				int
+	Name			nvarchar
+	Location		nvarchar
+
+Department	
+PK	ID				int
+	Name			nvarchar
+FK	CompanyID		int
+
+Employee	
+PK	ID				int
+	FirstName		nvarchar
+	LastName		nvarchar
+	BirthDate		smalldatetime
+	HireDate		smalldatetime
+	LeaveDate		smalldatetime
+FK	CompanyID		int
+FK	DepartmentID	int
+
+Topic	
+PK	ID				int
+	Name			nvarchar
+	Desription		nvarchar
+	Priority		smallint
+FK	DepartmentID	int
+FK	EmployeeID		int
+
+Comment	
+PK	ID				int
+	Title			nvarchar
+	Message			nvarchar
+	PostTime		smalldatetime
+	Score			smallint
+	IsVisibile		bool
+FK	EmployeeID		int
+
+User
+PK	ID				int
+FK	EmployeeID		int
+	ProfilePicture	image
+	Rights			smallint
+	Score			smallint
