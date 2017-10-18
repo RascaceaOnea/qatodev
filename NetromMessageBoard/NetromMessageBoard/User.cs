@@ -17,8 +17,8 @@ namespace NetromMessageBoard
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Comments = new HashSet<Comment>();
-            this.Topics = new HashSet<Topic>();
+            this.Comments = new ObservableListSource<Comment>();
+            this.Topics = new ObservableListSource<Topic>();
         }
     
         public int ID { get; set; }
@@ -28,9 +28,9 @@ namespace NetromMessageBoard
         public int EmployeeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ObservableListSource<Comment> Comments { get; set; }
         public virtual Employee Employee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Topic> Topics { get; set; }
+        public virtual ObservableListSource<Topic> Topics { get; set; }
     }
 }
