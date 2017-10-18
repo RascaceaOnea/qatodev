@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b87aadbe62e4728a7d72d5d3b0bbf4d" Name="Diagram1">
+        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Employee" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="12.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <AssociationConnector Association="QaToDevModel.FK_Comment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_Department_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_Employee_Company" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_Employee_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_Topic_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_User_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="QaToDevModel.FK_Topic_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
