@@ -1,17 +1,17 @@
 Company
 PK	ID				int
-	Name			nvarchar
-	Location		nvarchar
+	Name			nvarchar(30)
+	Location		nvarchar(40)
 
 Department	
 PK	ID				int
-	Name			nvarchar
+	Name			nvarchar(30)
 FK	CompanyID		int
 
 Employee	
 PK	ID				int
-	FirstName		nvarchar
-	LastName		nvarchar
+	FirstName		nvarchar(20)
+	LastName		nvarchar(20)
 	BirthDate		smalldatetime
 	HireDate		smalldatetime
 	LeaveDate		smalldatetime
@@ -20,23 +20,25 @@ FK	DepartmentID	int
 
 Topic	
 PK	ID				int
-	Name			nvarchar
-	Desription		nvarchar
-	Priority		smallint
+	Name			nvarchar(30)
+	Desription		nvarchar(256)
+	Score			smallint
 FK	DepartmentID	int
 FK	EmployeeID		int
 
 Comment	
 PK	ID				int
-	Title			nvarchar
-	Message			nvarchar
+	Title			nvarchar(30)
+	Message			nvarchar(256)
 	PostTime		smalldatetime
 	Score			smallint
 	IsVisibile		bool
+	TopicID			int
 FK	EmployeeID		int
 
 User
 PK	ID				int
+	UserName		nvarchar(30)
 FK	EmployeeID		int
 	ProfilePicture	image
 	Rights			smallint
