@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard", "NetromMessageBoard\NetromMessageBoard.csproj", "{8134D131-7080-4EF6-819A-139F81C62063}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NetromMessageBoard.Database", "NetromMessageBoard.Database\NetromMessageBoard.Database.sqlproj", "{C5FB0616-F9E5-4461-82AA-7B40FEA01939}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{8134D131-7080-4EF6-819A-139F81C62063}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8134D131-7080-4EF6-819A-139F81C62063}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8134D131-7080-4EF6-819A-139F81C62063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5FB0616-F9E5-4461-82AA-7B40FEA01939}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

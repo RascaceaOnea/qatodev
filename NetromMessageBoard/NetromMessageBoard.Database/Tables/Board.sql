@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Board]
+(
+	[ID] INT NOT NULL PRIMARY KEY, 
+    [Name] NVARCHAR(20) NOT NULL
+)

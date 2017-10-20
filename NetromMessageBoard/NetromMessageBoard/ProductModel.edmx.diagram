@@ -5,13 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7b87aadbe62e4728a7d72d5d3b0bbf4d" Name="Diagram1">
-        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Employee" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.sysdiagram" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="12.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="7.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.875" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="3.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Employee" Width="1.5" PointX="5.625" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="10.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="7.375" PointY="0.625" IsExpanded="true" />
         <AssociationConnector Association="QaToDevModel.FK_Comment_User" ManuallyRouted="false" />
         <AssociationConnector Association="QaToDevModel.FK_Department_Company" ManuallyRouted="false" />
         <AssociationConnector Association="QaToDevModel.FK_Employee_Company" ManuallyRouted="false" />
