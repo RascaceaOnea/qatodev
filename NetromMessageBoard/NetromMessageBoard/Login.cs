@@ -34,10 +34,18 @@ namespace NetromMessageBoard.Controller
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if (txt_UserName.Text == "" || txt_Password.Text == "")
+            string UserName = txt_UserName.Text;
+            string Password = txt_Password.Text;
+            if (Controller.User.Login(UserName, Password))
             {
-                MessageBox.Show("Please provide UserName and Password");
-                return;
+                 MessageBox.Show("Login Successful!");
+                 this.Hide();
+                Form fm = new Form();
+                fm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed!");
             }
         }
 

@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7b87aadbe62e4728a7d72d5d3b0bbf4d" Name="Diagram1" ZoomLevel="89">
-        <EntityTypeShape EntityType="QaToDevModel.Board" Width="1.5" PointX="5.25" PointY="0.875" />
-        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="9.75" PointY="3.875" />
-        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.75" PointY="4.625" />
+        <EntityTypeShape EntityType="QaToDevModel.Board" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.75" PointY="4.5" />
         <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="3" PointY="4.5" />
-        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="7.5" PointY="4" />
         <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="5.25" PointY="3.375" />
         <AssociationConnector Association="QaToDevModel.FK_CommentReply" />
         <AssociationConnector Association="QaToDevModel.FK_CommentTopic" />
