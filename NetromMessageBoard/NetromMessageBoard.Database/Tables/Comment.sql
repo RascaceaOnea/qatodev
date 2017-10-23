@@ -8,5 +8,8 @@
     [IsVisible] BIT NOT NULL, 
     [TopicID] INT NOT NULL, 
     [UserID] INT NOT NULL, 
-    [CommentID] INT NULL, 
+    [CommentID] INT null,
+	Constraint FK_CommentReply Foreign Key (CommentID) References Comment([ID]),
+	Constraint FK_CommentUser Foreign Key (UserID) References Users([ID]),
+	Constraint FK_CommentTopic Foreign Key (TopicID) References Topic([ID])
 )
