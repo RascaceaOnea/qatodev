@@ -9,14 +9,14 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="BoardTopic">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="BoardID" />
+            <PropertyRef Name="TopicID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="BoardID" Type="int" Nullable="false" />
           <Property Name="TopicID" Type="int" Nullable="false" />
         </EntityType>
@@ -24,7 +24,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Message" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="PostTime" Type="datetime" Nullable="false" />
@@ -38,7 +38,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Location" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -46,22 +46,9 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="CompanyID" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="BirthDate" Type="date" />
-          <Property Name="ArrivalDate" Type="date" Nullable="false" />
-          <Property Name="LeaveDate" Type="date" />
-          <Property Name="CompanyID" Type="int" Nullable="false" />
-          <Property Name="DepartmentID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -77,7 +64,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="Priority" Type="int" Nullable="false" />
@@ -85,15 +72,24 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProfilePicture" Type="image" />
           <Property Name="Rights" Type="int" Nullable="false" />
           <Property Name="Score" Type="int" Nullable="false" />
           <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="ArrivalDate" Type="date" Nullable="false" />
+          <Property Name="LeaveDate" Type="date" />
+          <Property Name="CompanyID" Type="int" Nullable="false" />
+          <Property Name="DepartmentID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="FK_BoardTopic">
           <End Role="Board" Type="Self.Board" Multiplicity="1" />
@@ -132,10 +128,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CommentUser">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Comment">
@@ -152,30 +148,6 @@
             </Principal>
             <Dependent Role="Department">
               <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeCompany">
-          <End Role="Company" Type="Self.Company" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Company">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeDepartment">
-          <End Role="Department" Type="Self.Department" Multiplicity="1" />
-          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="DepartmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -204,10 +176,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TopicUser">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="1" />
           <End Role="Topic" Type="Self.Topic" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Users">
+            <Principal Role="User">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Topic">
@@ -215,15 +187,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserEmployee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+        <Association Name="FK_UserCompany">
+          <End Role="Company" Type="Self.Company" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
+            <Principal Role="Company">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Users">
-              <PropertyRef Name="EmployeeID" />
+            <Dependent Role="User">
+              <PropertyRef Name="CompanyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDepartment">
+          <End Role="Department" Type="Self.Department" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="DepartmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -264,10 +248,9 @@
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BoardTopic" Association="Self.FK_BoardTopic">
             <End Role="Board" EntitySet="Board" />
             <End Role="BoardTopic" EntitySet="BoardTopic" />
@@ -281,20 +264,12 @@
             <End Role="Comment" EntitySet="Comment" />
           </AssociationSet>
           <AssociationSet Name="FK_CommentUser" Association="Self.FK_CommentUser">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Comment" EntitySet="Comment" />
           </AssociationSet>
           <AssociationSet Name="FK_DepartmentCompany" Association="Self.FK_DepartmentCompany">
             <End Role="Company" EntitySet="Company" />
             <End Role="Department" EntitySet="Department" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompany" Association="Self.FK_EmployeeCompany">
-            <End Role="Company" EntitySet="Company" />
-            <End Role="Employee" EntitySet="Employee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeDepartment" Association="Self.FK_EmployeeDepartment">
-            <End Role="Department" EntitySet="Department" />
-            <End Role="Employee" EntitySet="Employee" />
           </AssociationSet>
           <AssociationSet Name="FK_TopicBoard" Association="Self.FK_TopicBoard">
             <End Role="Topic" EntitySet="Topic" />
@@ -305,12 +280,16 @@
             <End Role="Topic" EntitySet="Topic" />
           </AssociationSet>
           <AssociationSet Name="FK_TopicUser" Association="Self.FK_TopicUser">
-            <End Role="Users" EntitySet="Users" />
+            <End Role="User" EntitySet="User" />
             <End Role="Topic" EntitySet="Topic" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserEmployee" Association="Self.FK_UserEmployee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Users" EntitySet="Users" />
+          <AssociationSet Name="FK_UserCompany" Association="Self.FK_UserCompany">
+            <End Role="Company" EntitySet="Company" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDepartment" Association="Self.FK_UserDepartment">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -360,21 +339,11 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Boards" EntityType="QaToDevModel.Board" />
-          <EntitySet Name="BoardTopics" EntityType="QaToDevModel.BoardTopic" />
           <EntitySet Name="Comments" EntityType="QaToDevModel.Comment" />
           <EntitySet Name="Companies" EntityType="QaToDevModel.Company" />
           <EntitySet Name="Departments" EntityType="QaToDevModel.Department" />
-          <EntitySet Name="Employees" EntityType="QaToDevModel.Employee" />
           <EntitySet Name="Topics" EntityType="QaToDevModel.Topic" />
           <EntitySet Name="Users" EntityType="QaToDevModel.User" />
-          <AssociationSet Name="FK_BoardTopic" Association="QaToDevModel.FK_BoardTopic">
-            <End Role="Board" EntitySet="Boards" />
-            <End Role="BoardTopic" EntitySet="BoardTopics" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TopicBoard" Association="QaToDevModel.FK_TopicBoard">
-            <End Role="Topic" EntitySet="Topics" />
-            <End Role="BoardTopic" EntitySet="BoardTopics" />
-          </AssociationSet>
           <AssociationSet Name="FK_CommentReply" Association="QaToDevModel.FK_CommentReply">
             <End Role="Comment" EntitySet="Comments" />
             <End Role="Comment1" EntitySet="Comments" />
@@ -391,24 +360,24 @@
             <End Role="Company" EntitySet="Companies" />
             <End Role="Department" EntitySet="Departments" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeCompany" Association="QaToDevModel.FK_EmployeeCompany">
+          <AssociationSet Name="FK_UserCompany" Association="QaToDevModel.FK_UserCompany">
             <End Role="Company" EntitySet="Companies" />
-            <End Role="Employee" EntitySet="Employees" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EmployeeDepartment" Association="QaToDevModel.FK_EmployeeDepartment">
-            <End Role="Department" EntitySet="Departments" />
-            <End Role="Employee" EntitySet="Employees" />
+            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_TopicDepartment" Association="QaToDevModel.FK_TopicDepartment">
             <End Role="Department" EntitySet="Departments" />
             <End Role="Topic" EntitySet="Topics" />
           </AssociationSet>
-          <AssociationSet Name="FK_UserEmployee" Association="QaToDevModel.FK_UserEmployee">
-            <End Role="Employee" EntitySet="Employees" />
+          <AssociationSet Name="FK_UserDepartment" Association="QaToDevModel.FK_UserDepartment">
+            <End Role="Department" EntitySet="Departments" />
             <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_TopicUser" Association="QaToDevModel.FK_TopicUser">
             <End Role="User" EntitySet="Users" />
+            <End Role="Topic" EntitySet="Topics" />
+          </AssociationSet>
+          <AssociationSet Name="BoardTopic" Association="QaToDevModel.BoardTopic">
+            <End Role="Board" EntitySet="Boards" />
             <End Role="Topic" EntitySet="Topics" />
           </AssociationSet>
           </EntityContainer>
@@ -427,25 +396,15 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BoardTopics" Relationship="QaToDevModel.FK_BoardTopic" FromRole="Board" ToRole="BoardTopic" />
-        </EntityType>
-        <EntityType Name="BoardTopic">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="BoardID" Type="Int32" Nullable="false" />
-          <Property Name="TopicID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Board" Relationship="QaToDevModel.FK_BoardTopic" FromRole="BoardTopic" ToRole="Board" />
-          <NavigationProperty Name="Topic" Relationship="QaToDevModel.FK_TopicBoard" FromRole="BoardTopic" ToRole="Topic" />
+          <NavigationProperty Name="Topics" Relationship="QaToDevModel.BoardTopic" FromRole="Board" ToRole="Topic" />
         </EntityType>
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Message" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="PostTime" Type="DateTime" Nullable="false" Precision="3" />
@@ -463,92 +422,62 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Departments" Relationship="QaToDevModel.FK_DepartmentCompany" FromRole="Company" ToRole="Department" />
-          <NavigationProperty Name="Employees" Relationship="QaToDevModel.FK_EmployeeCompany" FromRole="Company" ToRole="Employee" />
+          <NavigationProperty Name="Users" Relationship="QaToDevModel.FK_UserCompany" FromRole="Company" ToRole="User" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Company" Relationship="QaToDevModel.FK_DepartmentCompany" FromRole="Department" ToRole="Company" />
-          <NavigationProperty Name="Employees" Relationship="QaToDevModel.FK_EmployeeDepartment" FromRole="Department" ToRole="Employee" />
           <NavigationProperty Name="Topics" Relationship="QaToDevModel.FK_TopicDepartment" FromRole="Department" ToRole="Topic" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="BirthDate" Type="DateTime" Precision="0" />
-          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="LeaveDate" Type="DateTime" Precision="0" />
-          <Property Name="CompanyID" Type="Int32" Nullable="false" />
-          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Company" Relationship="QaToDevModel.FK_EmployeeCompany" FromRole="Employee" ToRole="Company" />
-          <NavigationProperty Name="Department" Relationship="QaToDevModel.FK_EmployeeDepartment" FromRole="Employee" ToRole="Department" />
-          <NavigationProperty Name="Users" Relationship="QaToDevModel.FK_UserEmployee" FromRole="Employee" ToRole="User" />
+          <NavigationProperty Name="Users" Relationship="QaToDevModel.FK_UserDepartment" FromRole="Department" ToRole="User" />
         </EntityType>
         <EntityType Name="Topic">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int32" Nullable="false" />
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="BoardTopics" Relationship="QaToDevModel.FK_TopicBoard" FromRole="Topic" ToRole="BoardTopic" />
           <NavigationProperty Name="Comments" Relationship="QaToDevModel.FK_CommentTopic" FromRole="Topic" ToRole="Comment" />
           <NavigationProperty Name="Department" Relationship="QaToDevModel.FK_TopicDepartment" FromRole="Topic" ToRole="Department" />
           <NavigationProperty Name="User" Relationship="QaToDevModel.FK_TopicUser" FromRole="Topic" ToRole="User" />
+          <NavigationProperty Name="Boards" Relationship="QaToDevModel.BoardTopic" FromRole="Topic" ToRole="Board" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Rights" Type="Int32" Nullable="false" />
           <Property Name="Score" Type="Int32" Nullable="false" />
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="ArrivalDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="LeaveDate" Type="DateTime" Precision="0" />
+          <Property Name="CompanyID" Type="Int32" Nullable="false" />
+          <Property Name="DepartmentID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Comments" Relationship="QaToDevModel.FK_CommentUser" FromRole="User" ToRole="Comment" />
-          <NavigationProperty Name="Employee" Relationship="QaToDevModel.FK_UserEmployee" FromRole="User" ToRole="Employee" />
+          <NavigationProperty Name="Company" Relationship="QaToDevModel.FK_UserCompany" FromRole="User" ToRole="Company" />
+          <NavigationProperty Name="Department" Relationship="QaToDevModel.FK_UserDepartment" FromRole="User" ToRole="Department" />
           <NavigationProperty Name="Topics" Relationship="QaToDevModel.FK_TopicUser" FromRole="User" ToRole="Topic" />
         </EntityType>
-        <Association Name="FK_BoardTopic">
-          <End Type="QaToDevModel.Board" Role="Board" Multiplicity="1" />
-          <End Type="QaToDevModel.BoardTopic" Role="BoardTopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Board">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BoardTopic">
-              <PropertyRef Name="BoardID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TopicBoard">
-          <End Type="QaToDevModel.Topic" Role="Topic" Multiplicity="1" />
-          <End Type="QaToDevModel.BoardTopic" Role="BoardTopic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Topic">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BoardTopic">
-              <PropertyRef Name="TopicID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CommentReply">
           <End Type="QaToDevModel.Comment" Role="Comment" Multiplicity="0..1" />
           <End Type="QaToDevModel.Comment" Role="Comment1" Multiplicity="*" />
@@ -597,27 +526,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EmployeeCompany">
+        <Association Name="FK_UserCompany">
           <End Type="QaToDevModel.Company" Role="Company" Multiplicity="1" />
-          <End Type="QaToDevModel.Employee" Role="Employee" Multiplicity="*" />
+          <End Type="QaToDevModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Company">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Employee">
+            <Dependent Role="User">
               <PropertyRef Name="CompanyID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EmployeeDepartment">
-          <End Type="QaToDevModel.Department" Role="Department" Multiplicity="1" />
-          <End Type="QaToDevModel.Employee" Role="Employee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Employee">
-              <PropertyRef Name="DepartmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -633,15 +550,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_UserEmployee">
-          <End Type="QaToDevModel.Employee" Role="Employee" Multiplicity="1" />
+        <Association Name="FK_UserDepartment">
+          <End Type="QaToDevModel.Department" Role="Department" Multiplicity="1" />
           <End Type="QaToDevModel.User" Role="User" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Employee">
+            <Principal Role="Department">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="User">
-              <PropertyRef Name="EmployeeID" />
+              <PropertyRef Name="DepartmentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -656,6 +573,10 @@
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <Association Name="BoardTopic">
+          <End Type="QaToDevModel.Board" Role="Board" Multiplicity="*" />
+          <End Type="QaToDevModel.Topic" Role="Topic" Multiplicity="*" />
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -706,15 +627,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="BoardTopics">
-            <EntityTypeMapping TypeName="QaToDevModel.BoardTopic">
-              <MappingFragment StoreEntitySet="BoardTopic">
-                <ScalarProperty Name="TopicID" ColumnName="TopicID" />
-                <ScalarProperty Name="BoardID" ColumnName="BoardID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Comments">
             <EntityTypeMapping TypeName="QaToDevModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
@@ -748,20 +660,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="QaToDevModel.Employee">
-              <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
-                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
-                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
-                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
-                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Topics">
             <EntityTypeMapping TypeName="QaToDevModel.Topic">
               <MappingFragment StoreEntitySet="Topic">
@@ -777,7 +675,16 @@
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="QaToDevModel.User">
-              <MappingFragment StoreEntitySet="Users">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="LeaveDate" ColumnName="LeaveDate" />
+                <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Score" ColumnName="Score" />
                 <ScalarProperty Name="Rights" ColumnName="Rights" />
@@ -786,6 +693,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="BoardTopic" TypeName="QaToDevModel.BoardTopic" StoreEntitySet="BoardTopic">
+            <EndProperty Name="Topic">
+              <ScalarProperty Name="ID" ColumnName="TopicID" />
+            </EndProperty>
+            <EndProperty Name="Board">
+              <ScalarProperty Name="ID" ColumnName="BoardID" />
+            </EndProperty>
+          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

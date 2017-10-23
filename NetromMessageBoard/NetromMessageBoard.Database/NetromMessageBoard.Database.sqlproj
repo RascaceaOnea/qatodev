@@ -63,7 +63,7 @@
     <Build Include="Tables\Employee.sql" />
     <Build Include="Tables\Department.sql" />
     <Build Include="Tables\Company.sql" />
-    <Build Include="Tables\Users.sql" />
+    <Build Include="Tables\User.sql" />
     <Build Include="Tables\Board.sql" />
     <Build Include="Tables\BoardTopic.sql" />
     <Build Include="Tables\Topic.sql" />

@@ -54,23 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs">
+      <DependentUpon>ProductModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Comment.cs">
       <DependentUpon>ProductModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Company.cs">
       <DependentUpon>ProductModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Department.cs">
-      <DependentUpon>ProductModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Employee.cs">
-      <DependentUpon>ProductModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Controller\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Controller\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>ProductModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ObservableClassSource.cs" />
     <Compile Include="ProductModel.Context.cs">
@@ -105,6 +105,9 @@
     <Compile Include="User.cs">
       <DependentUpon>ProductModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Controller\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -149,6 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

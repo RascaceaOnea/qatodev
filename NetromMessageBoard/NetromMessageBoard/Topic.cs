@@ -17,8 +17,8 @@ namespace NetromMessageBoard
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Topic()
         {
-            this.BoardTopics = new ObservableListSource<BoardTopic>();
             this.Comments = new ObservableListSource<Comment>();
+            this.Boards = new ObservableListSource<Board>();
         }
     
         public int ID { get; set; }
@@ -30,10 +30,10 @@ namespace NetromMessageBoard
         public string Password { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<BoardTopic> BoardTopics { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Comment> Comments { get; set; }
         public virtual Department Department { get; set; }
         public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableListSource<Board> Boards { get; set; }
     }
 }

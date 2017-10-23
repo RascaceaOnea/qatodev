@@ -18,7 +18,7 @@ namespace NetromMessageBoard
         public Company()
         {
             this.Departments = new ObservableListSource<Department>();
-            this.Employees = new ObservableListSource<Employee>();
+            this.Users = new ObservableListSource<User>();
         }
     
         public int ID { get; set; }
@@ -28,6 +28,6 @@ namespace NetromMessageBoard
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Department> Departments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Employee> Employees { get; set; }
+        public virtual ObservableListSource<User> Users { get; set; }
     }
 }

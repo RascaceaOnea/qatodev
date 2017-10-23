@@ -26,10 +26,20 @@ namespace NetromMessageBoard
         public int Rights { get; set; }
         public int Score { get; set; }
         public int EmployeeID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Nullable<System.DateTime> BirthDate { get; set; }
+        public System.DateTime ArrivalDate { get; set; }
+        public Nullable<System.DateTime> LeaveDate { get; set; }
+        public int CompanyID { get; set; }
+        public int DepartmentID { get; set; }
+        public string UserName { get; set; }
+        public string UserPassword { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Comment> Comments { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual Company Company { get; set; }
+        public virtual Department Department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Topic> Topics { get; set; }
     }

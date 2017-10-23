@@ -17,13 +17,13 @@ namespace NetromMessageBoard
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Board()
         {
-            this.BoardTopics = new ObservableListSource<BoardTopic>();
+            this.Topics = new ObservableListSource<Topic>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<BoardTopic> BoardTopics { get; set; }
+        public virtual ObservableListSource<Topic> Topics { get; set; }
     }
 }
