@@ -24,6 +24,7 @@ namespace NetromMessageBoard
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Nullable<System.DateTime> BirthDate { get; set; }
+        public System.DateTime ArrivalDate { get; set; }
         public Nullable<System.DateTime> LeaveDate { get; set; }
         public int CompanyID { get; set; }
         public int DepartmentID { get; set; }

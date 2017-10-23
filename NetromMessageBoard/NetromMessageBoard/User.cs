@@ -23,8 +23,8 @@ namespace NetromMessageBoard
     
         public int ID { get; set; }
         public byte[] ProfilePicture { get; set; }
-        public short Rights { get; set; }
-        public short Score { get; set; }
+        public int Rights { get; set; }
+        public int Score { get; set; }
         public int EmployeeID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

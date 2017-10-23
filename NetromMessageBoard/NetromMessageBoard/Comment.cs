@@ -14,14 +14,26 @@ namespace NetromMessageBoard
     
     public partial class Comment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Comment()
+        {
+            this.Comment1 = new ObservableListSource<Comment>();
+        }
+    
         public int ID { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
         public System.DateTime PostTime { get; set; }
-        public short Score { get; set; }
+        public int Score { get; set; }
         public bool IsVisible { get; set; }
+        public int TopicID { get; set; }
         public int UserID { get; set; }
+        public Nullable<int> CommentID { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableListSource<Comment> Comment1 { get; set; }
+        public virtual Comment Comment2 { get; set; }
+        public virtual Topic Topic { get; set; }
         public virtual User User { get; set; }
     }
 }

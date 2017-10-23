@@ -27,11 +27,13 @@ namespace NetromMessageBoard
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Board> Boards { get; set; }
+        public virtual DbSet<BoardTopic> BoardTopics { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<User> Users { get; set; }
     

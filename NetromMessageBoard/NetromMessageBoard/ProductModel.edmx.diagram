@@ -4,20 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7b87aadbe62e4728a7d72d5d3b0bbf4d" Name="Diagram1">
-        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="10.5" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="0.875" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="3.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Employee" Width="1.5" PointX="5.625" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="10.875" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="7.375" PointY="0.625" IsExpanded="true" />
-        <AssociationConnector Association="QaToDevModel.FK_Comment_User" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_Department_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_Employee_Company" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_Employee_Department" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_Topic_Department" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_User_Employee" ManuallyRouted="false" />
-        <AssociationConnector Association="QaToDevModel.FK_Topic_User" ManuallyRouted="false" />
+      <Diagram DiagramId="7b87aadbe62e4728a7d72d5d3b0bbf4d" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="QaToDevModel.Board" Width="1.5" PointX="11.875" PointY="1.875" />
+        <EntityTypeShape EntityType="QaToDevModel.BoardTopic" Width="1.5" PointX="13.5" PointY="4.125" />
+        <EntityTypeShape EntityType="QaToDevModel.Comment" Width="1.5" PointX="6.375" PointY="5.5" />
+        <EntityTypeShape EntityType="QaToDevModel.Company" Width="1.5" PointX="3.625" PointY="6.875" />
+        <EntityTypeShape EntityType="QaToDevModel.Department" Width="1.5" PointX="2.875" PointY="3.5" />
+        <EntityTypeShape EntityType="QaToDevModel.Employee" Width="1.5" PointX="5.75" PointY="1.625" />
+        <EntityTypeShape EntityType="QaToDevModel.Topic" Width="1.5" PointX="10.25" PointY="5.5" />
+        <EntityTypeShape EntityType="QaToDevModel.User" Width="1.5" PointX="7.625" PointY="1.875" />
+        <AssociationConnector Association="QaToDevModel.FK_BoardTopic" />
+        <AssociationConnector Association="QaToDevModel.FK_TopicBoard" />
+        <AssociationConnector Association="QaToDevModel.FK_CommentReply" />
+        <AssociationConnector Association="QaToDevModel.FK_CommentTopic" />
+        <AssociationConnector Association="QaToDevModel.FK_CommentUser" />
+        <AssociationConnector Association="QaToDevModel.FK_DepartmentCompany" />
+        <AssociationConnector Association="QaToDevModel.FK_EmployeeCompany" />
+        <AssociationConnector Association="QaToDevModel.FK_EmployeeDepartment" />
+        <AssociationConnector Association="QaToDevModel.FK_TopicDepartment" />
+        <AssociationConnector Association="QaToDevModel.FK_UserEmployee" />
+        <AssociationConnector Association="QaToDevModel.FK_TopicUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
