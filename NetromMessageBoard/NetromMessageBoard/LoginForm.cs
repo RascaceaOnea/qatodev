@@ -19,7 +19,8 @@ namespace NetromMessageBoard.Controller
         
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            new RegisterForm().Show();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -35,7 +36,8 @@ namespace NetromMessageBoard.Controller
                 
                 if (user != null)
                 {
-                    Application.Run(new MainForm());
+                    this.Hide();
+                    new MainForm().Show();
                 }
                 else
                 {

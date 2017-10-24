@@ -22,9 +22,8 @@ namespace NetromMessageBoard
         }
     
         public int ID { get; set; }
-        
         public byte[] ProfilePicture { get; set; }
-        public int Rights { get; set; }
+        public Rights Rights { get; set; }
         public Nullable<int> Score { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

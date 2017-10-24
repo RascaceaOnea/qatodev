@@ -460,7 +460,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Rights" Type="Int32" Nullable="false" />
+          <Property Name="Rights" Type="QaToDevModel.Rights" Nullable="false" />
           <Property Name="Score" Type="Int32" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -576,6 +576,11 @@
           <End Type="QaToDevModel.Board" Role="Board" Multiplicity="*" />
           <End Type="QaToDevModel.Topic" Role="Topic" Multiplicity="*" />
         </Association>
+        <EnumType Name="Rights" IsFlags="true">
+          <Member Name="Normal" Value="0" />
+          <Member Name="Admin" Value="1" />
+          <Member Name="CompanyAdmin" Value="2" />
+        </EnumType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

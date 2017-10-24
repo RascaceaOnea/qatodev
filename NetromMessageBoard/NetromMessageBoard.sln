@@ -9,6 +9,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NetromMessageBoard.Database
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard.Repository", "NetromMessageBoard.Repository\NetromMessageBoard.Repository.csproj", "{3C013845-15E2-4C4B-BDA8-819A54AFB0BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard.Model", "NetromMessageBoard.Model\NetromMessageBoard.Model.csproj", "{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{3C013845-15E2-4C4B-BDA8-819A54AFB0BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C013845-15E2-4C4B-BDA8-819A54AFB0BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C013845-15E2-4C4B-BDA8-819A54AFB0BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
