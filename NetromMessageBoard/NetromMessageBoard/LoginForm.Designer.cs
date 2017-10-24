@@ -2,7 +2,7 @@
 
 namespace NetromMessageBoard.Controller
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@ namespace NetromMessageBoard.Controller
             this.label_CompanyName = new System.Windows.Forms.Label();
             this.btn_Login = new System.Windows.Forms.Button();
             this.btn_SignUp = new System.Windows.Forms.Button();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txt_UserName
@@ -45,7 +46,6 @@ namespace NetromMessageBoard.Controller
             this.txt_UserName.Name = "txt_UserName";
             this.txt_UserName.Size = new System.Drawing.Size(190, 20);
             this.txt_UserName.TabIndex = 0;
-            this.txt_UserName.TextChanged += new System.EventHandler(this.txt_UserName_TextChanged);
             // 
             // label1
             // 
@@ -72,7 +72,7 @@ namespace NetromMessageBoard.Controller
             this.txt_Password.Name = "txt_Password";
             this.txt_Password.Size = new System.Drawing.Size(190, 20);
             this.txt_Password.TabIndex = 3;
-            this.txt_Password.TextChanged += new System.EventHandler(this.txt_Password_TextChanged);
+            this.txt_Password.UseSystemPasswordChar = true;
             // 
             // label_CompanyName
             // 
@@ -82,11 +82,10 @@ namespace NetromMessageBoard.Controller
             this.label_CompanyName.Size = new System.Drawing.Size(82, 13);
             this.label_CompanyName.TabIndex = 4;
             this.label_CompanyName.Text = "Company Name";
-            this.label_CompanyName.Click += new System.EventHandler(this.label3_Click);
             // 
             // btn_Login
             // 
-            this.btn_Login.Location = new System.Drawing.Point(192, 102);
+            this.btn_Login.Location = new System.Drawing.Point(192, 123);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(75, 23);
             this.btn_Login.TabIndex = 5;
@@ -96,7 +95,7 @@ namespace NetromMessageBoard.Controller
             // 
             // btn_SignUp
             // 
-            this.btn_SignUp.Location = new System.Drawing.Point(111, 102);
+            this.btn_SignUp.Location = new System.Drawing.Point(111, 123);
             this.btn_SignUp.Name = "btn_SignUp";
             this.btn_SignUp.Size = new System.Drawing.Size(75, 23);
             this.btn_SignUp.TabIndex = 6;
@@ -104,11 +103,23 @@ namespace NetromMessageBoard.Controller
             this.btn_SignUp.UseVisualStyleBackColor = true;
             this.btn_SignUp.Click += new System.EventHandler(this.btn_SignUp_Click);
             // 
-            // Login
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(77, 94);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(63, 13);
+            this.lblError.TabIndex = 7;
+            this.lblError.Text = "Invalid login";
+            this.lblError.Visible = false;
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(277, 137);
+            this.ClientSize = new System.Drawing.Size(276, 158);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.btn_SignUp);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.label_CompanyName);
@@ -116,7 +127,9 @@ namespace NetromMessageBoard.Controller
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txt_UserName);
-            this.Name = "Login";
+            this.MaximumSize = new System.Drawing.Size(292, 197);
+            this.MinimumSize = new System.Drawing.Size(292, 197);
+            this.Name = "LoginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,5 +150,6 @@ namespace NetromMessageBoard.Controller
         private System.Windows.Forms.Label label_CompanyName;
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.Button btn_SignUp;
+        private System.Windows.Forms.Label lblError;
     }
 }
