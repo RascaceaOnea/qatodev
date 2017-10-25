@@ -88,7 +88,7 @@
           <Property Name="CompanyID" Type="int" Nullable="false" />
           <Property Name="DepartmentID" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_BoardTopic">
           <End Role="Board" Type="Self.Board" Multiplicity="1" />
@@ -391,6 +391,11 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EnumType Name="Rights" IsFlags="true">
+          <Member Name="Normal" Value="0" />
+          <Member Name="Admin" Value="1" />
+          <Member Name="CompanyAdmin" Value="2" />
+        </EnumType>
         <EntityType Name="Board">
           <Key>
             <PropertyRef Name="ID" />
@@ -460,7 +465,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Rights" Type="QaToDevModel.Rights" Nullable="false" />
+          <Property Name="Rights" Type="Int32" Nullable="false" />
           <Property Name="Score" Type="Int32" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -470,7 +475,7 @@
           <Property Name="CompanyID" Type="Int32" Nullable="false" />
           <Property Name="DepartmentID" Type="Int32" Nullable="false" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Comments" Relationship="QaToDevModel.FK_CommentUser" FromRole="User" ToRole="Comment" />
           <NavigationProperty Name="Company" Relationship="QaToDevModel.FK_UserCompany" FromRole="User" ToRole="Company" />
           <NavigationProperty Name="Department" Relationship="QaToDevModel.FK_UserDepartment" FromRole="User" ToRole="Department" />
@@ -576,11 +581,6 @@
           <End Type="QaToDevModel.Board" Role="Board" Multiplicity="*" />
           <End Type="QaToDevModel.Topic" Role="Topic" Multiplicity="*" />
         </Association>
-        <EnumType Name="Rights" IsFlags="true">
-          <Member Name="Normal" Value="0" />
-          <Member Name="Admin" Value="1" />
-          <Member Name="CompanyAdmin" Value="2" />
-        </EnumType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

@@ -64,6 +64,7 @@
       <DependentUpon>ProductModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Controller\Login.cs" />
+    <Compile Include="Controller\RNGCryptoServiceProvider.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

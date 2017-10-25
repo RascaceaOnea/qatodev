@@ -32,7 +32,11 @@ namespace NetromMessageBoard.Controller
 
             using (QaToDevEntities context = new QaToDevEntities())
             {
-                User user = context.Users.FirstOrDefault(u => u.UserName == txt_UserName.Text && u.UserPassword == txt_Password.Text);
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(txt_Password.Text);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                String hash = System.Text.Encoding.ASCII.GetString(data);
+
+                User user = context.Users.FirstOrDefault(u => u.UserName == txt_UserName.Text && u.UserPassword == hash);
                 
                 if (user != null)
                 {
