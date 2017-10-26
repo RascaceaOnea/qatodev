@@ -80,6 +80,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NetromMessageBoardDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NetromMessageBoardDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ObservableClassSource.cs" />
     <Compile Include="ProductModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -140,6 +145,17 @@
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="NetromMessageBoardDataSet.xsc">
+      <DependentUpon>NetromMessageBoardDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NetromMessageBoardDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NetromMessageBoardDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NetromMessageBoardDataSet.xss">
+      <DependentUpon>NetromMessageBoardDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="ProductModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
