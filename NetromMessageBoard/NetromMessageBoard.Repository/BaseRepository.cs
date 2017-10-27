@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetromMessageBoard.Model
+namespace NetromMessageBoard.Repository
 {
-    [Flags]
-    public enum Rights
+    abstract class BaseRepository
     {
-        Normal = 0,
-        Admin = 1,
-        CompanyAdmin = 2,
-
+         
     }
 }

@@ -7,33 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetromMessageBoard
+namespace NetromMessageBoard.Model
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Topic
+    public partial class Department
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Topic()
+        public Department()
         {
-            this.Comments = new ObservableListSource<Comment>();
-            this.Boards = new ObservableListSource<Board>();
+            this.Topics = new HashSet<Topic>();
+            this.Users = new HashSet<User>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
-        public int Priority { get; set; }
-        public int DepartmentID { get; set; }
-        public int UserID { get; set; }
-        public string Password { get; set; }
+        public int CompanyID { get; set; }
     
+        public virtual Company Company { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Comment> Comments { get; set; }
-        public virtual Department Department { get; set; }
-        public virtual User User { get; set; }
+        public virtual ICollection<Topic> Topics { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ObservableListSource<Board> Boards { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

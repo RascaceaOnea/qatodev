@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dtaGridUsers = new System.Windows.Forms.DataGridView();
-            this.lblCurrentUser = new System.Windows.Forms.Label();
-            this.lblUsers = new System.Windows.Forms.Label();
             this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmUserFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +37,13 @@
             this.clmBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmArrivalDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmBtnDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGridUsers)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtaGridUsers
@@ -59,26 +63,6 @@
             this.dtaGridUsers.Size = new System.Drawing.Size(760, 462);
             this.dtaGridUsers.TabIndex = 0;
             this.dtaGridUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtaGridUsers_CellContentClick);
-            // 
-            // lblCurrentUser
-            // 
-            this.lblCurrentUser.AutoSize = true;
-            this.lblCurrentUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentUser.Location = new System.Drawing.Point(680, 12);
-            this.lblCurrentUser.Name = "lblCurrentUser";
-            this.lblCurrentUser.Size = new System.Drawing.Size(79, 16);
-            this.lblCurrentUser.TabIndex = 1;
-            this.lblCurrentUser.Text = "Current user";
-            // 
-            // lblUsers
-            // 
-            this.lblUsers.AutoSize = true;
-            this.lblUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsers.Location = new System.Drawing.Point(12, 9);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(55, 20);
-            this.lblUsers.TabIndex = 2;
-            this.lblUsers.Text = "Users:";
             // 
             // clmID
             // 
@@ -130,17 +114,56 @@
             this.clmBtnDelete.HeaderText = "Delete";
             this.clmBtnDelete.Name = "clmBtnDelete";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.departmentsToolStripMenuItem,
+            this.toolStripTextBox1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 27);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 23);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 23);
+            this.toolStripMenuItem1.Text = "Users";
+            // 
+            // departmentsToolStripMenuItem
+            // 
+            this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
+            this.departmentsToolStripMenuItem.Text = "Departments";
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 511);
-            this.Controls.Add(this.lblUsers);
-            this.Controls.Add(this.lblCurrentUser);
             this.Controls.Add(this.dtaGridUsers);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.dtaGridUsers)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,8 +172,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtaGridUsers;
-        private System.Windows.Forms.Label lblCurrentUser;
-        private System.Windows.Forms.Label lblUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmUserFullName;
@@ -159,5 +180,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmBirthDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmArrivalDate;
         private System.Windows.Forms.DataGridViewButtonColumn clmBtnDelete;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem departmentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
