@@ -8,18 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard
 {
     public partial class RegisterForm : Form
     {
-        protected QaToDevEntities Context { get; private set; }
+        protected NetromMessageBoardEntities Context { get; private set; }
 
         public RegisterForm()
         {
             InitializeComponent();
 
-            Context = new QaToDevEntities();
+            Context = new NetromMessageBoardEntities();
             cmbCompany.DataSource = Context.Companies.ToList();
             cmbCompany.DisplayMember = "Name";
             cmbCompany.SelectedIndex = -1;
@@ -32,7 +33,7 @@ namespace NetromMessageBoard
             lblUserNameAlreadyExists.Hide();
             lblPasswordMismatch.Hide();
 
-            using (QaToDevEntities context = new QaToDevEntities())
+            using (NetromMessageBoardEntities context = new NetromMessageBoardEntities())
             {
                 
                 if (string.IsNullOrEmpty(txtFirstName.Text)
