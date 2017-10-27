@@ -19,8 +19,8 @@ namespace NetromMessageBoard
         public RegisterForm()
         {
             InitializeComponent();
-
             Context = new NetromMessageBoardEntities();
+
             cmbCompany.DataSource = Context.Companies.ToList();
             cmbCompany.DisplayMember = "Name";
             cmbCompany.SelectedIndex = -1;

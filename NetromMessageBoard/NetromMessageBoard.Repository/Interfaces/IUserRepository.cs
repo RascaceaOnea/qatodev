@@ -11,6 +11,7 @@ namespace NetromMessageBoard.Repository.Interfaces
     {
         List<User> GetAllUsers();
         bool DeleteUserById(int id);
+        bool AddNewUser(User userToBeAdded);
     }
     
 }

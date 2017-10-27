@@ -36,6 +36,8 @@
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbCompany = new System.Windows.Forms.ComboBox();
             this.lblDepartment = new System.Windows.Forms.Label();
             this.lblCompany = new System.Windows.Forms.Label();
             this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
@@ -48,8 +50,6 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblRegisterPassword = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.cmbCompany = new System.Windows.Forms.ComboBox();
-            this.cmbDepartment = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -130,6 +130,23 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Personal Data";
+            // 
+            // cmbDepartment
+            // 
+            this.cmbDepartment.FormattingEnabled = true;
+            this.cmbDepartment.Location = new System.Drawing.Point(75, 108);
+            this.cmbDepartment.Name = "cmbDepartment";
+            this.cmbDepartment.Size = new System.Drawing.Size(203, 21);
+            this.cmbDepartment.TabIndex = 24;
+            // 
+            // cmbCompany
+            // 
+            this.cmbCompany.FormattingEnabled = true;
+            this.cmbCompany.Location = new System.Drawing.Point(75, 85);
+            this.cmbCompany.Name = "cmbCompany";
+            this.cmbCompany.Size = new System.Drawing.Size(203, 21);
+            this.cmbCompany.TabIndex = 23;
+            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // lblDepartment
             // 
@@ -249,23 +266,6 @@
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // cmbCompany
-            // 
-            this.cmbCompany.FormattingEnabled = true;
-            this.cmbCompany.Location = new System.Drawing.Point(75, 85);
-            this.cmbCompany.Name = "cmbCompany";
-            this.cmbCompany.Size = new System.Drawing.Size(203, 21);
-            this.cmbCompany.TabIndex = 23;
-            this.cmbCompany.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // cmbDepartment
-            // 
-            this.cmbDepartment.FormattingEnabled = true;
-            this.cmbDepartment.Location = new System.Drawing.Point(75, 108);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(203, 21);
-            this.cmbDepartment.TabIndex = 24;
             // 
             // RegisterForm
             // 
