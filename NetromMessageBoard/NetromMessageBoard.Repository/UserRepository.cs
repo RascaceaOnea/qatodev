@@ -21,12 +21,14 @@ namespace NetromMessageBoard.Repository
             if (userToDelete != null)
             {
                 Context.Users.Remove(userToDelete);
+                SaveChanges();
                 return true;
             }
             else
             {
                 return false;
             }
+            
             
         }
     }
