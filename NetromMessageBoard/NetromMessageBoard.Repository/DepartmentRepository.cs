@@ -15,12 +15,12 @@ namespace NetromMessageBoard.Repository
             throw new NotImplementedException();
         }
 
-        public Department DeleteDepartmentByID(int id)
+        public Department DeleteDepartmentById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Department GetDepartmentByID()
+        public Department GetDepartmentById()
         {
             throw new NotImplementedException();
         }

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard.Repository.Interfaces
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
+        List<User> GetAllUsers();
+        bool DeleteUserById(int id);
     }
+    
 }

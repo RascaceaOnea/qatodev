@@ -4,40 +4,38 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetromMessageBoard.Model;
+using NetromMessageBoard.Repository;
 
 namespace NetromMessageBoard
 {
     public partial class MainForm : Form
     {
-        protected QaToDevEntities Context { get; private set; }
-
         public MainForm()
         {
             InitializeComponent();
-
-            Context = new QaToDevEntities();
             PopulateUsersGrid();
         }
-        
-
 
         private void PopulateUsersGrid()
         {
             dtaGridUsers.Rows.Clear();
-            List<User> users = Context.Users.ToList();
+            var users = new UserRepository().GetAllUsers();
             foreach (User user in users)
             {
-                this.dtaGridUsers.Rows.Add(
-                    user.ID,
-                    user.UserName,
-                    user.LastName + " " + user.FirstName,
-                    user.Company.Name,
-                    user.Department.Name,
-                    user.BirthDate.Value.ToString("yyyy-MM-dd"),
-                    user.ArrivalDate.ToString("yyyy-MM-dd"));
+                if (user.BirthDate != null)
+                    this.dtaGridUsers.Rows.Add(
+                        user.ID,
+                        user.UserName,
+                        user.LastName + " " + user.FirstName,
+                        user.Company.Name,
+                        user.Department.Name,
+                        user.BirthDate.Value.ToString("yyyy-MM-dd"),
+                        user.ArrivalDate.ToString("yyyy-MM-dd"));
             }
         }
 
@@ -50,13 +48,9 @@ namespace NetromMessageBoard
             {
                 try
                 {
-                    int userID = (int)dtaGridUsers[0, e.RowIndex].Value;
+                    int userId = (int)dtaGridUsers[0, e.RowIndex].Value;
 
-                    var user = Context.Users.First(u => u.ID == userID);
-
-                    Context.Users.Remove(user);
-
-                    Context.SaveChanges();
+                    new UserRepository().DeleteUserById(userId);
                 }
                 catch { Exception ex; }
             }
