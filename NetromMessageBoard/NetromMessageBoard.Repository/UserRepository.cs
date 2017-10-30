@@ -28,8 +28,30 @@ namespace NetromMessageBoard.Repository
             {
                 return false;
             }
+        }
+
+        public bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password, Company company, Department department)
+        {
+            User userToBeAdded = new User();
+
+            userToBeAdded.FirstName = firstName;
+            userToBeAdded.LastName = lastName;
+            userToBeAdded.BirthDate = birthDate.Date;
+            userToBeAdded.ArrivalDate = DateTime.Now.Date;
+            userToBeAdded.UserName = userName;
+
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            userToBeAdded.UserPassword = hash;
+            userToBeAdded.CompanyID = company.ID;
+            userToBeAdded.DepartmentID = department.ID;
             
-            
+            Context.Users.Add(userToBeAdded);
+            SaveChanges();
+
+            return true;
         }
     }
 }

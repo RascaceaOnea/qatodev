@@ -52,7 +52,9 @@ namespace NetromMessageBoard
 
                     new UserRepository().DeleteUserById(userId);
                 }
-                catch { Exception ex; }
+                catch
+                {
+                }
             }
             
             PopulateUsersGrid();

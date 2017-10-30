@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetromMessageBoard.Model;
+using NetromMessageBoard.Repository;
 
 namespace NetromMessageBoard
 {
@@ -60,27 +61,22 @@ namespace NetromMessageBoard
                     }
                     else
                     {
-                        User validUser = new User();
+                        bool succesfullRegister =  new UserRepository().AddNewUser(txtFirstName.Text, txtLastName.Text,
+                            dateTimePickerBirthDate.Value, txtUserName.Text, txtPassword.Text,
+                            (Company) cmbCompany.SelectedValue, (Department) cmbDepartment.SelectedValue);
 
-                        validUser.FirstName = txtFirstName.Text;
-                        validUser.LastName = txtLastName.Text;
-                        validUser.BirthDate = dateTimePickerBirthDate.Value.Date;
-                        validUser.ArrivalDate = DateTime.Now.Date;
-                        validUser.UserName = txtUserName.Text;
-
-                        byte[] data = System.Text.Encoding.ASCII.GetBytes(txtPassword.Text);
-                        data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-                        String hash = System.Text.Encoding.ASCII.GetString(data);
-
-                        validUser.UserPassword = hash;
-                        validUser.CompanyID = ((Company)cmbCompany.SelectedValue).ID;
-                        validUser.DepartmentID = ((Department)cmbDepartment.SelectedValue).ID;
-                        
-                        context.Users.Add(validUser);
-                        context.SaveChanges();
+                        if (succesfullRegister)
+                        {
+                            this.Hide();
+                            new LoginForm().Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The register failed.", "Error", MessageBoxButtons.OK);
+                        }
 
                         this.Hide();
-                        new LoginForm().Show();
+                        //new LoginForm().Show();
                     }
                 }
             }
