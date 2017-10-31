@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard.Repository
@@ -24,34 +22,40 @@ namespace NetromMessageBoard.Repository
                 SaveChanges();
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password, Company company, Department department)
         {
-            User userToBeAdded = new User();
+            try
+            {
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                string hash = System.Text.Encoding.ASCII.GetString(data);
 
-            userToBeAdded.FirstName = firstName;
-            userToBeAdded.LastName = lastName;
-            userToBeAdded.BirthDate = birthDate.Date;
-            userToBeAdded.ArrivalDate = DateTime.Now.Date;
-            userToBeAdded.UserName = userName;
+                User userToBeAdded = new User
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    BirthDate = birthDate.Date,
+                    ArrivalDate = DateTime.Now.Date,
+                    UserName = userName,
+                    UserPassword = hash,
+                    CompanyID = company.ID,
+                    DepartmentID = department.ID
+                };
 
-            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
-            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
-            String hash = System.Text.Encoding.ASCII.GetString(data);
+                Context.Users.Add(userToBeAdded);
+                SaveChanges();
 
-            userToBeAdded.UserPassword = hash;
-            userToBeAdded.CompanyID = company.ID;
-            userToBeAdded.DepartmentID = department.ID;
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                return false;
+            }
             
-            Context.Users.Add(userToBeAdded);
-            SaveChanges();
-
-            return true;
         }
     }
 }

@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace NetromMessageBoard
+{
 #pragma warning disable 1591
 
-namespace NetromMessageBoard {
-    
-    
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -42,7 +41,7 @@ namespace NetromMessageBoard {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         protected NetromMessageBoardDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                base(info, context, false) {
+            base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -247,7 +246,7 @@ namespace NetromMessageBoard {
                             s1.Position = 0;
                             s2.Position = 0;
                             for (; ((s1.Position != s1.Length) 
-                                        && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    && (s1.ReadByte() == s2.ReadByte())); ) {
                                 ;
                             }
                             if ((s1.Position == s1.Length)) {
@@ -328,7 +327,7 @@ namespace NetromMessageBoard {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected UserDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
+                base(info, context) {
                 this.InitVars();
             }
             
@@ -452,16 +451,16 @@ namespace NetromMessageBoard {
             public UserRow AddUserRow(int Rights, int Score, string FirstName, string LastName, System.DateTime BirthDate, System.DateTime ArrivalDate, System.DateTime LeaveDate, int CompanyID, int DepartmentID, string UserName) {
                 UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Rights,
-                        Score,
-                        FirstName,
-                        LastName,
-                        BirthDate,
-                        ArrivalDate,
-                        LeaveDate,
-                        CompanyID,
-                        DepartmentID,
-                        UserName};
+                    Rights,
+                    Score,
+                    FirstName,
+                    LastName,
+                    BirthDate,
+                    ArrivalDate,
+                    LeaveDate,
+                    CompanyID,
+                    DepartmentID,
+                    UserName};
                 rowUserRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUserRow);
                 return rowUserRow;
@@ -632,7 +631,7 @@ namespace NetromMessageBoard {
                                 s1.Position = 0;
                                 s2.Position = 0;
                                 for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                        && (s1.ReadByte() == s2.ReadByte())); ) {
                                     ;
                                 }
                                 if ((s1.Position == s1.Length)) {
@@ -665,7 +664,7 @@ namespace NetromMessageBoard {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal UserRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
+                base(rb) {
                 this.tableUser = ((UserDataTable)(this.Table));
             }
             
@@ -865,10 +864,7 @@ namespace NetromMessageBoard {
             }
         }
     }
-}
-namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
-    
-    
+
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
@@ -876,7 +872,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+                                                     ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class UserTableAdapter : global::System.ComponentModel.Component {
         
@@ -947,15 +943,15 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
+                     && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
+                     && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
+                     && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
@@ -1017,7 +1013,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Rights, Score, FirstName, LastName, BirthDate, ArrivalDate, LeaveDate, Com" +
-                "panyID, DepartmentID, UserName FROM dbo.[User]";
+                                                     "panyID, DepartmentID, UserName FROM dbo.[User]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1052,7 +1048,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" +
-        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+                                                     "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")]
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
@@ -1146,11 +1142,11 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private global::System.Data.DataRow[] GetRealUpdatedRows(global::System.Data.DataRow[] updatedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             if (((updatedRows == null) 
-                        || (updatedRows.Length < 1))) {
+                 || (updatedRows.Length < 1))) {
                 return updatedRows;
             }
             if (((allAddedRows == null) 
-                        || (allAddedRows.Count < 1))) {
+                 || (allAddedRows.Count < 1))) {
                 return updatedRows;
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -1178,11 +1174,11 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
-                        "ger TableAdapter property to a valid TableAdapter instance.");
+                                                              "ger TableAdapter property to a valid TableAdapter instance.");
             }
             bool workConnOpened = false;
             if (((workConnection.State & global::System.Data.ConnectionState.Broken) 
-                        == global::System.Data.ConnectionState.Broken)) {
+                 == global::System.Data.ConnectionState.Broken)) {
                 workConnection.Close();
             }
             if ((workConnection.State == global::System.Data.ConnectionState.Closed)) {
@@ -1192,7 +1188,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
             global::System.Data.IDbTransaction workTransaction = workConnection.BeginTransaction();
             if ((workTransaction == null)) {
                 throw new global::System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" +
-                        "ctions or the current state is not allowing the transaction to begin.");
+                                                              "ctions or the current state is not allowing the transaction to begin.");
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
             global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -1290,7 +1286,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
                 return true;
             }
             if (((this.Connection == null) 
-                        || (inputConnection == null))) {
+                 || (inputConnection == null))) {
                 return true;
             }
             if (string.Equals(this.Connection.ConnectionString, inputConnection.ConnectionString, global::System.StringComparison.Ordinal)) {
@@ -1344,8 +1340,8 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
 
                 global::System.Data.DataRow parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
                 for (
-                ; ((parent != null) 
-                            && (traversedRows.ContainsKey(parent) == false)); 
+                    ; ((parent != null) 
+                       && (traversedRows.ContainsKey(parent) == false)); 
                 ) {
                     distance = (distance + 1);
                     root = parent;
@@ -1358,8 +1354,8 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
                     traversedRows[row] = row;
                     parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Original);
                     for (
-                    ; ((parent != null) 
-                                && (traversedRows.ContainsKey(parent) == false)); 
+                        ; ((parent != null) 
+                           && (traversedRows.ContainsKey(parent) == false)); 
                     ) {
                         distance = (distance + 1);
                         root = parent;
@@ -1395,7 +1391,7 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
                 }
                 else {
                     global::System.Diagnostics.Debug.Assert(((root1.Table != null) 
-                                    && (root2.Table != null)));
+                                                             && (root2.Table != null)));
                     if ((root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2))) {
                         return -1;
                     }
@@ -1406,6 +1402,6 @@ namespace NetromMessageBoard.NetromMessageBoardDataSetTableAdapters {
             }
         }
     }
-}
 
 #pragma warning restore 1591
+}

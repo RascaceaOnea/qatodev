@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NetromMessageBoard.Controller
+namespace NetromMessageBoard
 {
     partial class LoginForm
     {

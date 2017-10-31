@@ -9,8 +9,9 @@ namespace NetromMessageBoard.Repository.Interfaces
 {
     public interface IDepartmentRepository
     {
-        Department GetDepartmentById();
-        Department AddNewDepartment(Department departmentToAdd);
-        Department DeleteDepartmentById(int id);
+        Department GetDepartmentById(int id);
+        bool AddNewDepartment(Department departmentToAdd);
+        bool DeleteDepartmentById(int id);
+        List<Department> GetAllDepartments();
     }
 }
