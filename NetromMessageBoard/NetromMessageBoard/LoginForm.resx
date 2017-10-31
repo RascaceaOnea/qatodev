@@ -120,4 +120,7 @@
   <data name="RegisterForm_btnSubmit_Click_The_register_failed_" xml:space="preserve">
     <value>The register failed.</value>
   </data>
+  <data name="Login_CheckCredentials_Please_provide_UserName_and_Password" xml:space="preserve">
+    <value>Please provide UserName and Password</value>
+  </data>
 </root>
