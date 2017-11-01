@@ -35,9 +35,9 @@ namespace NetromMessageBoard.Repository
             return false;
         }
 
-        public List<Company> GetAllCompanies()
+        public IQueryable<Company> GetAllCompanies()
         {
-            return Context.Companies.ToList();
+            return Context.Companies.AsQueryable();
         }
 
         public Company GetCompanyById(int id)

@@ -60,7 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\Login.cs" />
     <Compile Include="Controller\RNGCryptoServiceProvider.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -105,6 +104,7 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="NetromMessageBoardDataSet.xsc">
       <DependentUpon>NetromMessageBoardDataSet.xsd</DependentUpon>

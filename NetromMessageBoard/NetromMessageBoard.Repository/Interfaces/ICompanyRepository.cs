@@ -7,11 +7,11 @@ using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard.Repository.Interfaces
 {
-    public interface ICompanyRepository
+    public interface ICompanyRepository : IBaseRepository
     {
         Company GetCompanyById(int id);
         bool AddNewCompany(Company companyToAdd);
         bool DeleteCompanyById(int id);
-        List<Company> GetAllCompanies();
+        IQueryable<Company> GetAllCompanies();
     }
 }

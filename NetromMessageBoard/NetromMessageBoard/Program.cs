@@ -17,7 +17,8 @@ namespace NetromMessageBoard
        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(LoginForm());
+            LoginForm loginForm = new LoginForm();
+            Application.Run(loginForm);
         }
     }
 }

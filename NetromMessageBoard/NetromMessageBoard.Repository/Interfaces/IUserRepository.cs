@@ -7,13 +7,15 @@ using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard.Repository.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IBaseRepository
     {
-        List<User> GetAllUsers();
+        IQueryable<User> GetAllUsers();
         bool DeleteUserById(int id);
 
         bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password,
             Company company, Department department);
+
+        bool CheckCredentials(string userName, string password);
     }
     
 }

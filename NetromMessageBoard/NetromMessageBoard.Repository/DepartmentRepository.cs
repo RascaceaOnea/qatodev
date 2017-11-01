@@ -35,9 +35,9 @@ namespace NetromMessageBoard.Repository
             return false;
         }
 
-        public List<Department> GetAllDepartments()
+        public IQueryable<Department> GetAllDepartments()
         {
-            return Context.Departments.ToList();
+            return Context.Departments.AsQueryable();
         }
 
         public Department GetDepartmentById(int id)

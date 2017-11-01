@@ -8,9 +8,9 @@ namespace NetromMessageBoard.Repository
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
-        public List<User> GetAllUsers()
+        public IQueryable<User> GetAllUsers()
         {
-            return Context.Users.ToList();
+            return Context.Users.AsQueryable();
         }
 
         public bool DeleteUserById(int id)
@@ -56,6 +56,17 @@ namespace NetromMessageBoard.Repository
                 return false;
             }
             
+        }
+
+        public bool CheckCredentials(string userName, string password)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            String hash = System.Text.Encoding.ASCII.GetString(data);
+
+            var users = GetAllUsers();
+
+            return users.Any(u => u.UserName == userName && u.UserPassword == hash);
         }
     }
 }

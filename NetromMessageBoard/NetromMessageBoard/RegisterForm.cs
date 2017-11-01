@@ -2,26 +2,23 @@
 using System.Linq;
 using System.Windows.Forms;
 using NetromMessageBoard.Model;
+using NetromMessageBoard.Repository;
 using NetromMessageBoard.Repository.Interfaces;
 
 namespace NetromMessageBoard
 {
     public partial class RegisterForm : Form
     {
-        private readonly IUserRepository _userRepository;
-        private readonly ICompanyRepository _companyRepository;
-        private readonly IDepartmentRepository _departmentRepository;
-        
+        private const string TheRegisterFailed = "The register failed.";
+        private const string Caption = "Error";
 
-        public RegisterForm(IUserRepository userRepository, IDepartmentRepository departmentRepository, ICompanyRepository companyRepository)
+        public RegisterForm()
         {
             InitializeComponent();
 
-            _departmentRepository = departmentRepository;
-            _companyRepository = companyRepository;
-            _userRepository = userRepository;
-
-            cmbCompany.DataSource = _companyRepository.GetAllCompanies().ToList();
+            var companyRepository = UnitOfWork.Instance.GetRepository<ICompanyRepository>();
+            
+            cmbCompany.DataSource = companyRepository.GetAllCompanies().ToList();
             cmbCompany.DisplayMember = "Name";
             cmbCompany.SelectedIndex = -1;
 
@@ -45,7 +42,9 @@ namespace NetromMessageBoard
             }
             else
             {
-                User user = _userRepository.GetAllUsers().FirstOrDefault(u => u.UserName == txtUserName.Text);
+                var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+
+                User user = userRepository.GetAllUsers().FirstOrDefault(u => u.UserName == txtUserName.Text);
 
                 if (user != null)
                 {
@@ -57,7 +56,7 @@ namespace NetromMessageBoard
                 }
                 else
                 {
-                    bool succesfullRegister = _userRepository.AddNewUser(txtFirstName.Text, txtLastName.Text,
+                    bool succesfullRegister = userRepository.AddNewUser(txtFirstName.Text, txtLastName.Text,
                         dateTimePickerBirthDate.Value, txtUserName.Text, txtPassword.Text,
                         (Company)cmbCompany.SelectedValue, (Department)cmbDepartment.SelectedValue);
 
@@ -68,11 +67,11 @@ namespace NetromMessageBoard
                     }
                     else
                     {
-                        MessageBox.Show("The register failed.", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show(TheRegisterFailed, Caption, MessageBoxButtons.OK);
                     }
 
                     Hide();
-                    //new LoginForm().Show();
+                    new LoginForm().Show();
                 }
             }
         }
@@ -81,8 +80,9 @@ namespace NetromMessageBoard
         {
             if (cmbCompany.SelectedValue != null)
             {
-                cmbDepartment.DataSource = _departmentRepository.GetAllDepartments()
-                    .Where(d => d.CompanyID == ((Company)cmbCompany.SelectedValue).ID);
+                var departmentRepository = UnitOfWork.Instance.GetRepository<IDepartmentRepository>();
+                cmbDepartment.DataSource = departmentRepository.GetAllDepartments()
+                    .Where(d => d.CompanyID == ((Company)cmbCompany.SelectedValue).ID).ToList();
                 cmbDepartment.DisplayMember = "Name";
                 cmbDepartment.SelectedIndex = -1;
             }
