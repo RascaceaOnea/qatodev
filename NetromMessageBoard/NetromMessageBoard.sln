@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard", "NetromMessageBoard\NetromMessageBoard.csproj", "{8134D131-7080-4EF6-819A-139F81C62063}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard.Repository", "NetromMessageBoard.Repository\NetromMessageBoard.Repository.csproj", "{3C013845-15E2-4C4B-BDA8-819A54AFB0BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard.Model", "NetromMessageBoard.Model\NetromMessageBoard.Model.csproj", "{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetromMessageBoard.BusinessLogic", "NetromMessageBoard.BusinessLogic\NetromMessageBoard.BusinessLogic.csproj", "{BD18886F-00C1-45E8-A458-70D27F3CF160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F74EA80-3FC8-4D50-AAF4-C81E9514146D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD18886F-00C1-45E8-A458-70D27F3CF160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD18886F-00C1-45E8-A458-70D27F3CF160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD18886F-00C1-45E8-A458-70D27F3CF160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD18886F-00C1-45E8-A458-70D27F3CF160}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
