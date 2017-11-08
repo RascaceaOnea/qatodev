@@ -25,13 +25,16 @@ namespace NetromMessageBoard.Repository
             return false;
         }
 
-        public bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password, Company company, Department department)
+        public bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password, string company, string department)
         {
             try
             {
                 byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
                 data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
                 string hash = System.Text.Encoding.ASCII.GetString(data);
+
+                int companyId = (Context.Companies.FirstOrDefault(c => c.Name == company).ID);
+                int departmentId = Context.Departments.FirstOrDefault(d => d.Name == department).ID;
 
                 User userToBeAdded = new User
                 {
@@ -41,8 +44,8 @@ namespace NetromMessageBoard.Repository
                     ArrivalDate = DateTime.Now.Date,
                     UserName = userName,
                     UserPassword = hash,
-                    CompanyID = company.ID,
-                    DepartmentID = department.ID
+                    CompanyID = companyId,
+                    DepartmentID = departmentId
                 };
 
                 Context.Users.Add(userToBeAdded);
@@ -67,6 +70,13 @@ namespace NetromMessageBoard.Repository
             var users = GetAllUsers();
 
             return users.Any(u => u.UserName == userName && u.UserPassword == hash);
+        }
+
+        public bool IsUsernameUnique(string userName)
+        {
+            var users = GetAllUsers();
+
+            return !users.Any(u => u.UserName == userName);
         }
     }
 }

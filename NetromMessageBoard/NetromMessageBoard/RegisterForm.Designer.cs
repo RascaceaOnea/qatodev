@@ -45,7 +45,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPasswordMismatch = new System.Windows.Forms.Label();
             this.lblUserNameAlreadyExists = new System.Windows.Forms.Label();
-            this.txtRepreatPassword = new System.Windows.Forms.TextBox();
+            this.txtRepeatPassword = new System.Windows.Forms.TextBox();
             this.lblRegisterRptPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblRegisterPassword = new System.Windows.Forms.Label();
@@ -188,7 +188,7 @@
             // 
             this.groupBox2.Controls.Add(this.lblPasswordMismatch);
             this.groupBox2.Controls.Add(this.lblUserNameAlreadyExists);
-            this.groupBox2.Controls.Add(this.txtRepreatPassword);
+            this.groupBox2.Controls.Add(this.txtRepeatPassword);
             this.groupBox2.Controls.Add(this.lblRegisterRptPassword);
             this.groupBox2.Controls.Add(this.txtPassword);
             this.groupBox2.Controls.Add(this.lblRegisterPassword);
@@ -225,11 +225,11 @@
             // 
             // txtRepreatPassword
             // 
-            this.txtRepreatPassword.Location = new System.Drawing.Point(98, 67);
-            this.txtRepreatPassword.Name = "txtRepreatPassword";
-            this.txtRepreatPassword.Size = new System.Drawing.Size(203, 20);
-            this.txtRepreatPassword.TabIndex = 17;
-            this.txtRepreatPassword.UseSystemPasswordChar = true;
+            this.txtRepeatPassword.Location = new System.Drawing.Point(98, 67);
+            this.txtRepeatPassword.Name = "txtRepreatPassword";
+            this.txtRepeatPassword.Size = new System.Drawing.Size(203, 20);
+            this.txtRepeatPassword.TabIndex = 17;
+            this.txtRepeatPassword.UseSystemPasswordChar = true;
             // 
             // lblRegisterRptPassword
             // 
@@ -296,7 +296,7 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtRepreatPassword;
+        private System.Windows.Forms.TextBox txtRepeatPassword;
         private System.Windows.Forms.Label lblRegisterRptPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblRegisterPassword;
