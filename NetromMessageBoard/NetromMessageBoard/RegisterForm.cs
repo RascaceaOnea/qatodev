@@ -9,7 +9,7 @@ using NetromMessageBoard.Repository.Interfaces;
 
 namespace NetromMessageBoard
 {
-    public partial class RegisterForm : Form, IRegisterController
+    public partial class RegisterForm : Form, IRegister
     {
         private const string TheRegisterFailed = "The register failed.";
         private const string Caption = "Error";

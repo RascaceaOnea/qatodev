@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetromMessageBoard.Interfaces
 {
-    interface IRegisterController
+    interface IRegister
     {
         string FirstName { get; set; }
         string LastName { get; set; }

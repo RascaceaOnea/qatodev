@@ -12,9 +12,9 @@ namespace NetromMessageBoard.Controller
 {
     class RegisterController
     {
-        private readonly IRegisterController _register;
+        private readonly IRegister _register;
 
-        public RegisterController(IRegisterController register)
+        public RegisterController(IRegister register)
         {
             _register = register;
         }
