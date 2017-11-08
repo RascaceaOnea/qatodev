@@ -46,6 +46,7 @@ namespace NetromMessageBoard
             this.txt_UserName.Name = "txt_UserName";
             this.txt_UserName.Size = new System.Drawing.Size(190, 20);
             this.txt_UserName.TabIndex = 0;
+            this.txt_UserName.TextChanged += new System.EventHandler(this.txt_UserName_TextChanged);
             // 
             // label1
             // 
@@ -116,6 +117,7 @@ namespace NetromMessageBoard
             // 
             // LoginForm
             // 
+            this.AcceptButton = this.btn_Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(276, 158);

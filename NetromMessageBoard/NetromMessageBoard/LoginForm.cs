@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using NetromMessageBoard.Controller;
 using NetromMessageBoard.Repository;
 using NetromMessageBoard.Repository.Interfaces;
+using NetromMessageBoard.Interfaces;
 
 namespace NetromMessageBoard
 {
@@ -41,10 +42,9 @@ namespace NetromMessageBoard
                 else
                 {
                     lblError.Show();
+                    txt_Password.Clear();
                 }
             }
-
-
         }
 
         public string User
@@ -52,38 +52,17 @@ namespace NetromMessageBoard
             get { return txt_UserName.Text; }
             set { txt_UserName.Text = value; }
         }
+
         public string Password
         {
             get { return txt_Password.Text; }
             set { txt_Password.Text = value; }
         }
-    }
 
-    public interface ILogin
-    {
-        string User { get; set; }
-        string Password { get; set; }
-    }
-
-    public class LoginController
-    {
-        private readonly ILogin _login;
-
-        public LoginController(ILogin login)
+        private void txt_UserName_TextChanged(object sender, EventArgs e)
         {
-            _login = login;
-        }
-
-        public bool Validate()
-        {
-            return !string.IsNullOrEmpty(_login.User) && !string.IsNullOrEmpty(_login.Password);
-        }
-
-        public bool CheckCredentials()
-        {
-            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
-            return (userRepository.CheckCredentials(_login.User, _login.Password));
+            txt_Password.Clear();
         }
     }
-
+    
 }

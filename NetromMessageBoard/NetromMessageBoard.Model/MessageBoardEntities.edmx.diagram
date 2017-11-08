@@ -5,22 +5,22 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4e04a03400144a0385bc60f024f803d5" Name="Diagram1">
-        <EntityTypeShape EntityType="NetromMessageBoardModel.Board" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.Comment" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.Company" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.Department" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.sysdiagram" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.Topic" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="NetromMessageBoardModel.User" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentReply" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentTopic" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentUser" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_DepartmentCompany" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_UserCompany" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_TopicDepartment" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_UserDepartment" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.FK_TopicUser" ManuallyRouted="false" />
-        <AssociationConnector Association="NetromMessageBoardModel.BoardTopic" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.Board" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.Comment" Width="1.5" PointX="9.75" PointY="3.75" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.Company" Width="1.5" PointX="0.75" PointY="4.5" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.Department" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.Topic" Width="1.5" PointX="7.5" PointY="4" />
+        <EntityTypeShape EntityType="NetromMessageBoardModel.User" Width="1.5" PointX="5.25" PointY="3.375" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentReply" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentTopic" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_CommentUser" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_DepartmentCompany" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_UserCompany" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_TopicDepartment" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_UserDepartment" />
+        <AssociationConnector Association="NetromMessageBoardModel.FK_TopicUser" />
+        <AssociationConnector Association="NetromMessageBoardModel.BoardTopic" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

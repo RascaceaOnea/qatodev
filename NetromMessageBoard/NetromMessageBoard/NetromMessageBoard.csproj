@@ -60,7 +60,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\RNGCryptoServiceProvider.cs" />
+    <Compile Include="Controller\LoginController.cs" />
+    <Compile Include="Controller\RegisterController.cs" />
+    <Compile Include="Interfaces\ILogin.cs" />
+    <Compile Include="Interfaces\IRegister.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,5 +147,6 @@
       <Name>NetromMessageBoard.Repository</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
