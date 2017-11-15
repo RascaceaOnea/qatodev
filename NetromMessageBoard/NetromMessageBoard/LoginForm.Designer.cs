@@ -132,6 +132,7 @@ namespace NetromMessageBoard
             this.MaximumSize = new System.Drawing.Size(292, 197);
             this.MinimumSize = new System.Drawing.Size(292, 197);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -223,10 +223,10 @@
             this.lblUserNameAlreadyExists.Text = "User already exists";
             this.lblUserNameAlreadyExists.Visible = false;
             // 
-            // txtRepreatPassword
+            // txtRepeatPassword
             // 
             this.txtRepeatPassword.Location = new System.Drawing.Point(98, 67);
-            this.txtRepeatPassword.Name = "txtRepreatPassword";
+            this.txtRepeatPassword.Name = "txtRepeatPassword";
             this.txtRepeatPassword.Size = new System.Drawing.Size(203, 20);
             this.txtRepeatPassword.TabIndex = 17;
             this.txtRepeatPassword.UseSystemPasswordChar = true;
@@ -276,6 +276,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "RegisterForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
