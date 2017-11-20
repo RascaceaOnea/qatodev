@@ -78,5 +78,11 @@ namespace NetromMessageBoard.Repository
 
             return !users.Any(u => u.UserName == userName);
         }
+
+        public User GetUserById(int id)
+        {
+            var users = GetAllUsers();
+            return users.FirstOrDefault(u => u.ID == id);
+        }
     }
 }

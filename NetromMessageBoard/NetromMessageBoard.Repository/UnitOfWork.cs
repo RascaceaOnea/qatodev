@@ -17,10 +17,11 @@ namespace NetromMessageBoard.Repository
             builder.RegisterType<UserRepository>().As<IUserRepository>();
             builder.RegisterType<CompanyRepository>().As<ICompanyRepository>();
             builder.RegisterType<DepartmentRepository>().As<IDepartmentRepository>();
+            builder.RegisterType<TopicRepository>().As<ITopicRepository>();
             Container = builder.Build();
         }
 
-        public T GetRepository<T>() where T : IBaseRepository
+        public T GetRepository<T>()
         {
             return Container.Resolve<T>();
         }

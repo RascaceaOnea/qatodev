@@ -40,7 +40,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtaGridUsers)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -119,7 +119,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.departmentsToolStripMenuItem,
+            this.topicToolStripMenuItem,
             this.toolStripTextBox1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -139,11 +139,12 @@
             this.toolStripMenuItem1.Size = new System.Drawing.Size(47, 23);
             this.toolStripMenuItem1.Text = "Users";
             // 
-            // departmentsToolStripMenuItem
+            // topicToolStripMenuItem
             // 
-            this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
-            this.departmentsToolStripMenuItem.Text = "Departments";
+            this.topicToolStripMenuItem.Name = "topicToolStripMenuItem";
+            this.topicToolStripMenuItem.Size = new System.Drawing.Size(48, 23);
+            this.topicToolStripMenuItem.Text = "Topic";
+            this.topicToolStripMenuItem.Click += new System.EventHandler(this.topicToolStripMenuItem_Click);
             // 
             // toolStripTextBox1
             // 
@@ -183,7 +184,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem departmentsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topicToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }

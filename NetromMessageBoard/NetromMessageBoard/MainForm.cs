@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using NetromMessageBoard.Model;
 using NetromMessageBoard.Repository;
+using NetromMessageBoard.Repository.Interfaces;
 
 namespace NetromMessageBoard
 {
@@ -24,7 +25,8 @@ namespace NetromMessageBoard
         private void PopulateUsersGrid()
         {
             dtaGridUsers.Rows.Clear();
-            var users = new UserRepository().GetAllUsers();
+            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+            var users = userRepository.GetAllUsers();
             foreach (User user in users)
             {
                 if (user.BirthDate != null)
@@ -58,6 +60,12 @@ namespace NetromMessageBoard
             }
             
             PopulateUsersGrid();
+        }
+
+        private void topicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new TopicForm().Show();
         }
     }
 }

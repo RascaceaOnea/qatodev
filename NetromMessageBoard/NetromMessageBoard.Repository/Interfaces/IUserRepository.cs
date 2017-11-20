@@ -17,6 +17,7 @@ namespace NetromMessageBoard.Repository.Interfaces
 
         bool CheckCredentials(string userName, string password);
         bool IsUsernameUnique(string userName);
+        User GetUserById(int id);
     }
     
 }
