@@ -31,6 +31,6 @@ namespace NetromMessageBoard.Model
         public virtual DbSet<Department> Departments { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<IUser> Users { get; set; }
     }
 }

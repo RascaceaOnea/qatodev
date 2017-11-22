@@ -38,6 +38,7 @@ namespace NetromMessageBoard
                     //_controller.Navigate(Mainform)???
                     Hide();
                     new MainForm().Show();
+                    HelperClass.currentUser = this.User;
                 }
                 else
                 {

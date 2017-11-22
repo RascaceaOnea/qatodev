@@ -33,21 +33,22 @@
             this.TopicTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TopicDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TopicOwner = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CurrentUser = new System.Windows.Forms.Label();
+            this.txtCurrentUser = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listViewTopics
             // 
-            this.listViewTopics.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.listViewTopics.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listViewTopics.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id,
             this.TopicTitle,
             this.TopicDescription,
             this.TopicOwner});
-            this.listViewTopics.Location = new System.Drawing.Point(12, 29);
+            this.listViewTopics.Location = new System.Drawing.Point(12, 40);
             this.listViewTopics.Name = "listViewTopics";
-            this.listViewTopics.Size = new System.Drawing.Size(538, 293);
+            this.listViewTopics.Size = new System.Drawing.Size(560, 309);
             this.listViewTopics.TabIndex = 0;
             this.listViewTopics.UseCompatibleStateImageBehavior = false;
             this.listViewTopics.View = System.Windows.Forms.View.Details;
@@ -70,25 +71,25 @@
             // TopicOwner
             // 
             this.TopicOwner.Text = "Topic owner";
-            this.TopicOwner.Width = 86;
+            this.TopicOwner.Width = 109;
             // 
-            // CurrentUser
+            // txtCurrentUser
             // 
-            this.CurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CurrentUser.AutoSize = true;
-            this.CurrentUser.Location = new System.Drawing.Point(515, 13);
-            this.CurrentUser.Name = "CurrentUser";
-            this.CurrentUser.Size = new System.Drawing.Size(35, 13);
-            this.CurrentUser.TabIndex = 1;
-            this.CurrentUser.Text = "User: ";
+            this.txtCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCurrentUser.AutoSize = true;
+            this.txtCurrentUser.Location = new System.Drawing.Point(537, 13);
+            this.txtCurrentUser.Name = "txtCurrentUser";
+            this.txtCurrentUser.Size = new System.Drawing.Size(35, 13);
+            this.txtCurrentUser.TabIndex = 1;
+            this.txtCurrentUser.Text = "User: ";
             // 
             // TopicForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(562, 334);
-            this.Controls.Add(this.CurrentUser);
+            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.txtCurrentUser);
             this.Controls.Add(this.listViewTopics);
             this.Name = "TopicForm";
             this.Text = "Select a topic";
@@ -100,7 +101,7 @@
         #endregion
 
         private System.Windows.Forms.ListView listViewTopics;
-        private System.Windows.Forms.Label CurrentUser;
+        private System.Windows.Forms.Label txtCurrentUser;
         private System.Windows.Forms.ColumnHeader Id;
         private System.Windows.Forms.ColumnHeader TopicTitle;
         private System.Windows.Forms.ColumnHeader TopicDescription;

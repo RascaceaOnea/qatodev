@@ -27,7 +27,7 @@ namespace NetromMessageBoard
             dtaGridUsers.Rows.Clear();
             var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
             var users = userRepository.GetAllUsers();
-            foreach (User user in users)
+            foreach (IUser user in users)
             {
                 if (user.BirthDate != null)
                     this.dtaGridUsers.Rows.Add(
@@ -51,8 +51,8 @@ namespace NetromMessageBoard
                 try
                 {
                     int userId = (int)dtaGridUsers[0, e.RowIndex].Value;
-
-                    new UserRepository().DeleteUserById(userId);
+                    var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+                    userRepository.DeleteUserById(userId);
                 }
                 catch
                 {

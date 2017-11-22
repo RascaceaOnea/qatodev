@@ -12,10 +12,10 @@ namespace NetromMessageBoard.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class IUser
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public IUser()
         {
             this.Comments = new HashSet<Comment>();
             this.Topics = new HashSet<Topic>();

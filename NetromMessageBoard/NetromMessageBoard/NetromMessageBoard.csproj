@@ -62,6 +62,13 @@
   <ItemGroup>
     <Compile Include="Controller\LoginController.cs" />
     <Compile Include="Controller\RegisterController.cs" />
+    <Compile Include="CurrentTopicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CurrentTopicForm.Designer.cs">
+      <DependentUpon>CurrentTopicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClass.cs" />
     <Compile Include="TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +109,9 @@
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CurrentTopicForm.resx">
+      <DependentUpon>CurrentTopicForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TopicForm.resx">
       <DependentUpon>TopicForm.cs</DependentUpon>
     </EmbeddedResource>
