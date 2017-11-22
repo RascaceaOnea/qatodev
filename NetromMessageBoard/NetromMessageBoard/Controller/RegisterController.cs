@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetromMessageBoard.Interfaces;
+using NetromMessageBoard.Model;
 using NetromMessageBoard.Repository;
 using NetromMessageBoard.Repository.Interfaces;
 
@@ -37,13 +38,13 @@ namespace NetromMessageBoard.Controller
 
         public bool ValidateUsername()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
             return userRepository.IsUsernameUnique(_register.UserName);
         }
 
         public bool RegisterNewUser()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
             
             return userRepository.AddNewUser(_register.FirstName, _register.LastName, _register.BirthDate, _register.UserName,
                 _register.Password, _register.Company, _register.Department);

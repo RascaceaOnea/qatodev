@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NetromMessageBoard.Interfaces;
+using NetromMessageBoard.Model;
 using NetromMessageBoard.Repository;
 using NetromMessageBoard.Repository.Interfaces;
 
@@ -25,7 +26,7 @@ namespace NetromMessageBoard.Controller
 
         public bool CheckCredentials()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
             return (userRepository.CheckCredentials(_login.User, _login.Password));
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NetromMessageBoard.Model;
 using NetromMessageBoard.Repository;
 using NetromMessageBoard.Repository.Interfaces;
 
@@ -27,8 +28,8 @@ namespace NetromMessageBoard
         private void PopulateListView()
         {
             //listViewTopics.Clear();
-            var topicRepository = UnitOfWork.Instance.GetRepository<ITopicRepository>();
-            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
+            var topicRepository = UnitOfWork.Instance.GetRepository<TopicRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
             var allTopics = topicRepository.GetAllTopics();
             foreach (var topic in allTopics)
             {

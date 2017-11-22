@@ -9,7 +9,7 @@ namespace NetromMessageBoard.Repository.Interfaces
 {
     public interface IUserRepository : IBaseRepository
     {
-        IQueryable<IUser> GetAllUsers();
+        IQueryable<User> GetAllUsers();
         bool DeleteUserById(int id);
 
         bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password,
@@ -17,7 +17,7 @@ namespace NetromMessageBoard.Repository.Interfaces
 
         bool CheckCredentials(string userName, string password);
         bool IsUsernameUnique(string userName);
-        IUser GetUserById(int id);
+        User GetUserById(int id);
     }
     
 }

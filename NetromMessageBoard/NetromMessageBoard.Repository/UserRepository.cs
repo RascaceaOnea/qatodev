@@ -8,14 +8,14 @@ namespace NetromMessageBoard.Repository
 {
     public class UserRepository : BaseRepository, IUserRepository
     {
-        public IQueryable<IUser> GetAllUsers()
+        public IQueryable<User> GetAllUsers()
         {
             return Context.Users.AsQueryable();
         }
 
         public bool DeleteUserById(int id)
         {
-            IUser userToDelete = Context.Users.First(u => u.ID == id);
+            User userToDelete = Context.Users.First(u => u.ID == id);
             if (userToDelete != null)
             {
                 Context.Users.Remove(userToDelete);
@@ -36,7 +36,7 @@ namespace NetromMessageBoard.Repository
                 int companyId = (Context.Companies.FirstOrDefault(c => c.Name == company).ID);
                 int departmentId = Context.Departments.FirstOrDefault(d => d.Name == department).ID;
 
-                IUser userToBeAdded = new IUser
+                User userToBeAdded = new User
                 {
                     FirstName = firstName,
                     LastName = lastName,
@@ -79,7 +79,7 @@ namespace NetromMessageBoard.Repository
             return !users.Any(u => u.UserName == userName);
         }
 
-        public IUser GetUserById(int id)
+        public User GetUserById(int id)
         {
             var users = GetAllUsers();
             return users.FirstOrDefault(u => u.ID == id);
