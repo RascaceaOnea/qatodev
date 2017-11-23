@@ -26,7 +26,7 @@ namespace NetromMessageBoard.Controller
 
         public bool CheckCredentials()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
             return (userRepository.CheckCredentials(_login.User, _login.Password));
         }
     }

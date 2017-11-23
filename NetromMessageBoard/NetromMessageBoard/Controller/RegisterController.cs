@@ -38,13 +38,13 @@ namespace NetromMessageBoard.Controller
 
         public bool ValidateUsername()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
             return userRepository.IsUsernameUnique(_register.UserName);
         }
 
         public bool RegisterNewUser()
         {
-            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
             
             return userRepository.AddNewUser(_register.FirstName, _register.LastName, _register.BirthDate, _register.UserName,
                 _register.Password, _register.Company, _register.Department);

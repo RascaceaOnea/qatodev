@@ -28,8 +28,8 @@ namespace NetromMessageBoard
         private void PopulateListView()
         {
             //listViewTopics.Clear();
-            var topicRepository = UnitOfWork.Instance.GetRepository<TopicRepository>();
-            var userRepository = UnitOfWork.Instance.GetRepository<UserRepository>();
+            var topicRepository = UnitOfWork.Instance.GetRepository<ITopicRepository>();
+            var userRepository = UnitOfWork.Instance.GetRepository<IUserRepository>();
             var allTopics = topicRepository.GetAllTopics();
             foreach (var topic in allTopics)
             {
