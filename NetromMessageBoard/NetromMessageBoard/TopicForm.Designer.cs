@@ -92,6 +92,7 @@
             this.Controls.Add(this.txtCurrentUser);
             this.Controls.Add(this.listViewTopics);
             this.Name = "TopicForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select a topic";
             this.ResumeLayout(false);
             this.PerformLayout();

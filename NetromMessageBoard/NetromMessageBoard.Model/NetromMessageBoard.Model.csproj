@@ -108,6 +108,7 @@
       <DependentUpon>MessageBoardEntities.edmx</DependentUpon>
       <LastGenOutput>MessageBoardEntities.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="MessageBoardEntities.edmx.sql" />
     <Content Include="MessageBoardEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MessageBoardEntities.edmx</DependentUpon>
