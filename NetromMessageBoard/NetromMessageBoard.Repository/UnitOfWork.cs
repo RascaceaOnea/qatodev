@@ -6,10 +6,10 @@ namespace NetromMessageBoard.Repository
 {
     public class UnitOfWork
     {
-        private static Lazy<UnitOfWork> _lazy = new Lazy<UnitOfWork>(() => new UnitOfWork());
-        public static UnitOfWork Instance => _lazy.Value;
+        private static readonly Lazy<UnitOfWork> Lazy = new Lazy<UnitOfWork>(() => new UnitOfWork());
+        public static UnitOfWork Instance => Lazy.Value;
         
-        private IContainer Container;
+        public readonly IContainer Container;
 
         private UnitOfWork()
         {
