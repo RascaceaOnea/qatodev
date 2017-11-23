@@ -7,7 +7,7 @@ using NetromMessageBoard.Model;
 
 namespace NetromMessageBoard.Repository.Interfaces
 {
-    public interface ITopicRepository
+    public interface ITopicRepository : IBaseRepository
     {
         Topic GetTopicById(int id);
         IQueryable<Topic> GetAllTopics();

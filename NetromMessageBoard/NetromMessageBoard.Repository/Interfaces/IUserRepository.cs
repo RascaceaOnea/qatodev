@@ -11,10 +11,8 @@ namespace NetromMessageBoard.Repository.Interfaces
     {
         IQueryable<User> GetAllUsers();
         bool DeleteUserById(int id);
-
         bool AddNewUser(string firstName, string lastName, DateTime birthDate, string userName, string password,
             string company, string department);
-
         bool CheckCredentials(string userName, string password);
         bool IsUsernameUnique(string userName);
         User GetUserById(int id);

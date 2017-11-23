@@ -21,7 +21,7 @@ namespace NetromMessageBoard.Repository
             Container = builder.Build();
         }
 
-        public T GetRepository<T>()
+        public T GetRepository<T>() where T : IBaseRepository
         {
             return Container.Resolve<T>();
         }
