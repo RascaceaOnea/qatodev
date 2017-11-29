@@ -77,7 +77,7 @@
             // 
             this.txtCurrentUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCurrentUser.AutoSize = true;
-            this.txtCurrentUser.Location = new System.Drawing.Point(537, 13);
+            this.txtCurrentUser.Location = new System.Drawing.Point(491, 9);
             this.txtCurrentUser.Name = "txtCurrentUser";
             this.txtCurrentUser.Size = new System.Drawing.Size(35, 13);
             this.txtCurrentUser.TabIndex = 1;
@@ -88,6 +88,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.txtCurrentUser);
             this.Controls.Add(this.listViewTopics);
