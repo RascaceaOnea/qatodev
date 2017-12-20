@@ -1,0 +1,1 @@
+Given a set S, generate the powerset of it. A power set of any set S is the set of all subsets of S including the empry set and S itself.

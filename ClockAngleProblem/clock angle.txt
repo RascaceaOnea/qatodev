@@ -1,0 +1,1 @@
+Given a time of day format: HH:MM, calculate the shorter angle between the hour and minute hand in an analog clock.
