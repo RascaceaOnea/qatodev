@@ -69,6 +69,12 @@
       <DependentUpon>CurrentTopicForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HelperClass.cs" />
+    <Compile Include="ThreadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThreadForm.Designer.cs">
+      <DependentUpon>ThreadForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TopicForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="CurrentTopicForm.resx">
       <DependentUpon>CurrentTopicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThreadForm.resx">
+      <DependentUpon>ThreadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TopicForm.resx">
       <DependentUpon>TopicForm.cs</DependentUpon>

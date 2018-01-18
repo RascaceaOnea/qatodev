@@ -11,6 +11,7 @@ namespace NetromMessageBoard
     {
         private const string PleaseProvideUsernameAndPassword = "Please provide UserName and Password";
         private LoginController _controller;
+        private Timer timer;
 
         public LoginForm()
         {
