@@ -1,0 +1,56 @@
+event handles
+protected
+Polymorphism
+
+abstract class animal{
+	protected int _age;
+	abstract string ScoateSunet();	
+	void HaveABDayParty(){
+		_age++;	
+	}
+}
+interface animal{
+	int Age{get;set;};
+	abstract string ScoateSunet();
+}
+class caine:animal
+{
+	override string ScoateSunet(){
+		return "ham";
+	}
+}
+class pisica:animal
+{
+	override string ScoateSunet(){
+		return "miau";
+	}
+}
+
+DB - Update/insert
+
+select name, date from 
+	a join a_b 
+		on a_pk = a_fk
+	join b 
+		on b_pk = b_fk
+
+Stored procedures
+Views
+Indexes
+lambda expressions (grouping)
+
+Recursion
+
+int pow2(n)
+{
+if(n=0) return 1;
+else
+	return 2* pow(n-1);
+}
+
+Exceptions try catch throw
+
+Threads	
+Background workers
+Asynchronous operations
+Singleton
